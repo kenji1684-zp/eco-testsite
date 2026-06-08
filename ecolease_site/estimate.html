@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>簡易見積りシミュレーション｜株式会社エコリース</title>
+<meta name="description" content="設備リース・レンタルの概算費用をその場で試算。事業区分・設備・台数・利用期間を選ぶだけの簡易見積りシミュレーションです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-screen-label="簡易見積り">
+
+<header class="site-header">
+  <div class="wrap-wide header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="エコリース">
+      <span class="brand-txt"><b>株式会社エコリース</b><span>ECO LEASE CO.,LTD.</span></span>
+    </a>
+    <nav class="nav">
+      <a href="jigyo.html" class="nav-link">事業案内</a>
+      <a href="lease.html" class="nav-link">設備リース</a>
+      <a href="rental.html" class="nav-link">設備レンタル</a>
+      <a href="maintenance.html" class="nav-link">ビルメンテナンス</a>
+      <a href="estimate.html" class="nav-link active">簡易見積り</a>
+      <a href="company.html" class="nav-link">会社概要</a>
+      <a href="contact.html" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer">
+  <a href="jigyo.html">事業案内<span class="en">Business</span></a>
+  <a href="lease.html">設備リース<span class="en">Lease</span></a>
+  <a href="rental.html">設備レンタル<span class="en">Rental</span></a>
+  <a href="maintenance.html">ビルメンテナンス<span class="en">Maintenance</span></a>
+  <a href="estimate.html">簡易見積り<span class="en">Estimate</span></a>
+  <a href="company.html">会社概要<span class="en">Company</span></a>
+  <a href="contact.html">お問い合わせ<span class="en">Contact</span></a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="ph-inner">
+      <div class="reveal">
+        <span class="en">Estimate</span>
+        <h1>簡易見積り<br>シミュレーション</h1>
+      </div>
+      <p class="reveal d1">ご利用区分・設備・台数・利用期間を選ぶだけ。設備リース／レンタルのおおよその費用をその場で試算できます。まずは目安としてご活用ください。</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="breadcrumb"><a href="index.html">ホーム</a><span>/</span>簡易見積り</div></div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sim reveal">
+      <!-- INPUT -->
+      <div class="sim-main">
+        <div class="sim-block">
+          <div class="sb-head"><span class="no">1</span>ご利用区分</div>
+          <div class="seg" id="segKubun">
+            <button type="button" data-k="lease" class="on">設備リース<span class="hint">長期・割引あり</span></button>
+            <button type="button" data-k="rental">設備レンタル<span class="hint">短期・スピード</span></button>
+          </div>
+        </div>
+
+        <div class="sim-block">
+          <div class="sb-head"><span class="no">2</span>設備と台数を選ぶ</div>
+          <div id="eqList"></div>
+        </div>
+
+        <div class="sim-block">
+          <div class="sb-head"><span class="no">3</span>ご利用期間</div>
+          <div class="range-wrap">
+            <div class="rv"><b id="rvNum">6</b>ヶ月</div>
+            <input type="range" class="slider" id="period" min="1" max="36" value="6">
+            <div class="range-ticks"><span>1</span><span>12</span><span>24</span><span>36ヶ月</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <aside class="sim-result">
+        <div class="sr-label">Estimate</div>
+        <h3>概算お見積り</h3>
+        <div class="sim-line"><span>月額（税抜）</span><span class="v" id="rMonthly">¥0</span></div>
+        <div class="sim-line"><span>ご利用期間</span><span class="v" id="rMonths">6ヶ月</span></div>
+        <div class="sim-line"><span>設置・輸送費</span><span class="v" id="rSetup">¥0</span></div>
+        <div class="sim-line discount" id="rDiscRow" style="display:none"><span>長期割引</span><span class="v" id="rDisc">-0%</span></div>
+        <div class="sim-total">
+          <div class="tl">概算合計（税込）</div>
+          <div class="tv"><span id="rTotal">¥0</span><small>〜</small></div>
+          <div class="tax" id="rTax">うち消費税 ¥0</div>
+        </div>
+        <a href="contact.html" class="sr-cta">この内容で相談する →</a>
+        <p class="sr-note">表示は概算です。設備の状態・数量・地域により金額は変動します。正式なお見積りはお問い合わせください。</p>
+      </aside>
+    </div>
+
+    <div class="sim-disclaimer reveal d1"><b>ご注意：</b>本シミュレーションの単価・計算式はデモ用の参考値です。実際の料金とは異なります。正式なお見積りは内容をうかがって作成いたしますので、お問い合わせください。</div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="deco">ESTIMATE</div>
+  <div class="wrap">
+    <h2 class="reveal">正式なお見積りも、お気軽に。</h2>
+    <p class="reveal d1">試算結果をもとに、設備の状態やご希望に合わせた正式なお見積りを作成します。</p>
+    <div class="cta-row reveal d2">
+      <a href="contact.html" class="btn btn-primary">お問い合わせフォーム <span class="arr">→</span></a>
+      <a href="tel:0886720441" class="tel-big">☏ 088-672-0441</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="エコリース">
+        <p>〒779-0102<br>徳島県板野郡板野町川端字鶴ヶ須47-10<br>名古屋事務所／大阪事務所</p>
+        <div class="tel">088-672-0441</div>
+        <p>FAX 088-672-3623</p>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <a href="jigyo.html">事業案内</a>
+        <a href="lease.html">設備リース</a>
+        <a href="rental.html">設備レンタル</a>
+        <a href="maintenance.html">ビルメンテナンス</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="company.html">会社概要</a>
+        <a href="estimate.html">簡易見積り</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="index.html#business">「捨てない」の考え方</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="latin">© <span id="yr">2026</span> ECO LEASE CO., LTD.</span>
+      <span>株式会社エコリース｜捨てないというビジネスモデル</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function(){
+  // デモ用の参考単価（月額・設置費）。実際の料金とは異なります。
+  var EQUIP = [
+    { name:'受水槽・パネルタンク',          rate:35000, setup:40000 },
+    { name:'受変電設備・キュービクル',      rate:48000, setup:60000 },
+    { name:'変圧器（トランス）',            rate:22000, setup:25000 },
+    { name:'浄化槽',                        rate:30000, setup:45000 },
+    { name:'空調設備（パッケージエアコン）', rate:18000, setup:12000 },
+    { name:'消防設備・動力消防ポンプ庫',    rate:15000, setup:10000 }
+  ];
+  var qty = EQUIP.map(function(){ return 0; });
+  qty[0] = 1; // 初期で1台選択
+  var kubun = 'lease';
+  var yen = function(n){ return '¥' + Math.round(n).toLocaleString('ja-JP'); };
+
+  // build rows
+  var list = document.getElementById('eqList');
+  EQUIP.forEach(function(e, i){
+    var row = document.createElement('div');
+    row.className = 'eq-row' + (qty[i]===0?' zero':'');
+    row.innerHTML =
+      '<div><div class="eq-name">'+e.name+'</div><div class="eq-rate">月額 '+yen(e.rate)+' ／台</div></div>' +
+      '<div class="stepper-num"><button type="button" data-d="-1" aria-label="減らす">−</button>' +
+      '<span class="qv" id="qv'+i+'">'+qty[i]+'</span>' +
+      '<button type="button" data-d="1" aria-label="増やす">＋</button></div>' +
+      '<div class="eq-sub" id="sub'+i+'">'+yen(e.rate*qty[i])+'</div>';
+    var btns = row.querySelectorAll('.stepper-num button');
+    btns[0].addEventListener('click', function(){ setQty(i, qty[i]-1); });
+    btns[1].addEventListener('click', function(){ setQty(i, qty[i]+1); });
+    list.appendChild(row);
+  });
+
+  function setQty(i, v){
+    v = Math.max(0, Math.min(20, v));
+    qty[i] = v;
+    document.getElementById('qv'+i).textContent = v;
+    document.getElementById('sub'+i).textContent = yen(EQUIP[i].rate*v);
+    var row = document.getElementById('sub'+i).closest('.eq-row');
+    row.classList.toggle('zero', v===0);
+    calc();
+  }
+
+  // kubun segmented
+  var seg = document.getElementById('segKubun');
+  seg.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){
+      seg.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      kubun = b.dataset.k;
+      calc();
+    });
+  });
+
+  // period slider
+  var period = document.getElementById('period');
+  period.addEventListener('input', function(){
+    document.getElementById('rvNum').textContent = period.value;
+    calc();
+  });
+
+  function discountRate(months){
+    if (kubun !== 'lease') return 0;
+    if (months >= 36) return 0.15;
+    if (months >= 24) return 0.10;
+    if (months >= 12) return 0.05;
+    return 0;
+  }
+
+  function calc(){
+    var months = parseInt(period.value, 10);
+    var baseMonthly = 0, setup = 0;
+    EQUIP.forEach(function(e, i){ baseMonthly += e.rate*qty[i]; setup += e.setup*qty[i]; });
+    var factor = (kubun === 'rental') ? 1.25 : 1.0;
+    var monthly = baseMonthly * factor;
+    var dr = discountRate(months);
+    var monthlyAfter = monthly * (1 - dr);
+    var subtotal = monthlyAfter * months + setup;
+    var tax = subtotal * 0.1;
+    var total = subtotal + tax;
+
+    document.getElementById('rMonthly').textContent = yen(monthlyAfter);
+    document.getElementById('rMonths').textContent = months + 'ヶ月';
+    document.getElementById('rSetup').textContent = yen(setup);
+    var dRow = document.getElementById('rDiscRow');
+    if (dr > 0){ dRow.style.display='flex'; document.getElementById('rDisc').textContent = '-' + Math.round(dr*100) + '%'; }
+    else dRow.style.display='none';
+    document.getElementById('rTotal').textContent = yen(total);
+    document.getElementById('rTax').textContent = 'うち消費税 ' + yen(tax);
+  }
+
+  // init
+  document.getElementById('qv0').textContent = qty[0];
+  document.getElementById('sub0').textContent = yen(EQUIP[0].rate*qty[0]);
+  document.getElementById('eqList').firstChild.classList.remove('zero');
+  calc();
+})();
+</script>
+</body>
+</html>
